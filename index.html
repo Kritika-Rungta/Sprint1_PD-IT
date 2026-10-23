@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Prodesk IT Digital Marketing Wing - Delivering SEO, Web Development, and Digital Marketing solutions that help businesses grow online.">
+  <title>Prodesk IT | Digital Marketing Services</title>
+  
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header & Navigation -->
+  <header class="site-header">
+    <nav class="navbar" aria-label="Main navigation">
+      <div class="nav-container">
+        <!-- Logo Left -->
+        <a href="#home" class="nav-logo" aria-label="Prodesk IT home page">
+          <span class="logo-bold">Prodesk IT</span>
+          <span class="logo-sub">Digital</span>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button 
+          class="nav-toggle" 
+          id="menu-toggle" 
+          aria-expanded="false" 
+          aria-controls="primary-navigation" 
+          aria-label="Toggle navigation menu"
+        >
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+
+        <!-- Navigation Links Right -->
+        <div class="nav-menu" id="primary-navigation">
+          <ul class="nav-list">
+            <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
+            <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
+            <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+          </ul>
+          <div class="nav-actions">
+            <!-- Dark / Light Theme Toggle Button (Prompt 13) -->
+            <button 
+              class="theme-toggle" 
+              id="theme-toggle" 
+              type="button"
+              aria-label="Switch to dark theme" 
+              title="Toggle theme"
+            >
+              <!-- Moon icon (displayed in light mode) -->
+              <svg class="theme-icon icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              </svg>
+              <!-- Sun icon (displayed in dark mode) -->
+              <svg class="theme-icon icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+              </svg>
+            </button>
+            <a href="#contact" class="btn btn-sm btn-primary nav-cta">Get in Touch</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content Area -->
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+      <div class="container hero-container">
+        <div class="hero-content">
+          <span class="badge">Digital Marketing Wing &bull; Sprint 1</span>
+          <h1 class="hero-headline">We Build Digital Experiences That Drive Growth</h1>
+          <p class="hero-paragraph">
+            Prodesk IT helps modern businesses scale with strategic search optimization, custom web development, and targeted digital marketing campaigns that deliver real results.
+          </p>
+          <div class="hero-actions">
+            <a href="#services" class="btn btn-primary" id="hero-get-started">Get Started</a>
+            <a href="#about" class="btn btn-outline">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+      <div class="container">
+        <div class="section-intro">
+          <span class="section-kicker">About Us</span>
+          <h2 class="section-title">Your Trusted Digital Growth Partner</h2>
+          <p class="section-description">
+            We are a team of passionate developers, strategists, and digital marketers committed to building practical, high-performing online solutions for ambitious organizations.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-card">
+            <h3>Our Mission</h3>
+            <p>
+              To deliver transparent, data-backed digital services that connect businesses with their ideal customers and generate sustainable revenue growth.
+            </p>
+          </div>
+          <div class="about-card">
+            <h3>Our Approach</h3>
+            <p>
+              We prioritize clean technical fundamentals, straightforward communication, and measurable deliverables across every project we undertake.
+            </p>
+          </div>
+          <div class="about-card">
+            <h3>Why Prodesk IT</h3>
+            <p>
+              With specialized expertise in web technologies and digital marketing, we bridge the gap between design, performance, and commercial goals.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section (Exactly Three Cards) -->
+    <section class="services-section" id="services">
+      <div class="container">
+        <div class="section-intro">
+          <span class="section-kicker">What We Do</span>
+          <h2 class="section-title">Core Services</h2>
+          <p class="section-description">
+            Tailored digital services engineered to increase your reach, improve your user experience, and drive qualified conversions.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <!-- Service Card 1: SEO -->
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                <line x1="11" y1="8" x2="11" y2="14"></line>
+                <line x1="8" y1="11" x2="14" y2="11"></line>
+              </svg>
+            </div>
+            <h3 class="service-title">SEO</h3>
+            <p class="service-description">
+              Improve your search rankings and attract qualified organic traffic through technical SEO audits, on-page optimization, and targeted keyword strategies.
+            </p>
+            <ul class="service-features">
+              <li>Technical site structure audits</li>
+              <li>Keyword research &amp; content mapping</li>
+              <li>Local SEO &amp; Google Business setup</li>
+              <li>Core Web Vitals &amp; speed optimization</li>
+            </ul>
+          </article>
+
+          <!-- Service Card 2: Web Development -->
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+            </div>
+            <h3 class="service-title">Web Development</h3>
+            <p class="service-description">
+              Build responsive, accessible, and fast-loading web experiences tailored to your business objectives using standard-compliant web technologies.
+            </p>
+            <ul class="service-features">
+              <li>Clean, semantic HTML5 &amp; CSS3</li>
+              <li>Mobile-first responsive architecture</li>
+              <li>Landing page design &amp; optimization</li>
+              <li>Accessibility &amp; cross-browser testing</li>
+            </ul>
+          </article>
+
+          <!-- Service Card 3: Digital Marketing -->
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            </div>
+            <h3 class="service-title">Digital Marketing</h3>
+            <p class="service-description">
+              Reach your target audience effectively through data-informed paid advertising, social media campaigns, and structured marketing funnels.
+            </p>
+            <ul class="service-features">
+              <li>Targeted social media campaigns</li>
+              <li>Search engine advertising (PPC)</li>
+              <li>Conversion rate optimization</li>
+              <li>Campaign tracking &amp; reporting</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact / CTA Section -->
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <div class="contact-box">
+          <div class="contact-text">
+            <span class="section-kicker">Get Started</span>
+            <h2 class="contact-title">Ready to Grow Your Digital Presence?</h2>
+            <p class="contact-description">
+              Contact our team today to discuss how Prodesk IT can help your business reach new milestones online.
+            </p>
+            <div class="contact-info">
+              <p><strong>Email:</strong> <a href="mailto:contact@prodeskit.com">contact@prodeskit.com</a></p>
+              <p><strong>Phone:</strong> <a href="tel:+18005550199">+1 (800) 555-0199</a></p>
+              <p><strong>Hours:</strong> Monday &ndash; Friday, 10:00 AM &ndash; 5:00 PM</p>
+            </div>
+          </div>
+          <div class="contact-action">
+            <a href="mailto:contact@prodeskit.com" class="btn btn-primary btn-large">Email Our Team</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#home" class="footer-logo">Prodesk IT</a>
+          <p class="footer-tagline">
+            Practical digital marketing, web development, and search optimization solutions.
+          </p>
+        </div>
+
+        <nav class="footer-nav" aria-label="Footer quick links">
+          <h4 class="footer-nav-title">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer-social">
+          <h4 class="footer-nav-title">Connect</h4>
+          <ul class="social-links" aria-label="Social media profiles">
+            <li>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Prodesk IT on LinkedIn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                  <rect x="2" y="9" width="4" height="12"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+                <span>LinkedIn</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Prodesk IT on Twitter">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                </svg>
+                <span>Twitter / X</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Prodesk IT on Facebook">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                </svg>
+                <span>Facebook</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Prodesk IT on Instagram">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+                <span>Instagram</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright">&copy; 2026 Prodesk IT. All rights reserved.</p>
+        <p class="footer-note">Sprint 1 Deliverable &bull; Digital Marketing Wing</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Vanilla JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>

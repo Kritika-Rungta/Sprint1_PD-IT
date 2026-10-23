@@ -1,0 +1,892 @@
+/* ==========================================================================
+   PRODESK IT - DIGITAL MARKETING WING (SPRINT 1)
+   Plain, Standard-Compliant CSS (Phases 1 & 2)
+   Clean, accessible, and human-crafted visual design
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CSS Custom Properties (Theme & Design Tokens)
+   -------------------------------------------------------------------------- */
+:root {
+  /* Brand & Neutral Colors (Light Theme Default) */
+  --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8;
+  --color-primary-light: #eff6ff;
+  
+  --color-text-main: #0f172a;
+  --color-text-muted: #475569;
+  --color-text-light: #64748b;
+  
+  --color-bg-page: #ffffff;
+  --color-bg-surface: #f8fafc;
+  --color-bg-card: #ffffff;
+  
+  --color-border: #e2e8f0;
+  --color-border-hover: #cbd5e1;
+  
+  /* Focus Indicator for Accessibility */
+  --focus-ring: 2px solid #2563eb;
+  --focus-offset: 3px;
+
+  /* Typography */
+  --font-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  --line-height-base: 1.6;
+  --line-height-heading: 1.25;
+
+  /* Spacing Scale */
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1.25rem;
+  --space-lg: 2rem;
+  --space-xl: 3.5rem;
+  --space-2xl: 5rem;
+
+  /* Layout */
+  --max-width: 1140px;
+  --container-padding: 1.25rem;
+  --nav-height: 72px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-full: 9999px;
+
+  /* Card Shadows */
+  --shadow-subtle: 0 1px 3px rgba(15, 23, 42, 0.08), 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-hover: 0 10px 20px -5px rgba(15, 23, 42, 0.1), 0 4px 6px -2px rgba(15, 23, 42, 0.05);
+
+  /* Glassmorphism Header Background */
+  --header-bg: rgba(255, 255, 255, 0.88);
+}
+
+/* --------------------------------------------------------------------------
+   Dark Theme Overrides (Prompt 13)
+   Activated via [data-theme="dark"] on document root
+   -------------------------------------------------------------------------- */
+[data-theme="dark"] {
+  --color-primary: #3b82f6;
+  --color-primary-hover: #60a5fa;
+  --color-primary-light: rgba(59, 130, 246, 0.15);
+  
+  --color-text-main: #f8fafc;
+  --color-text-muted: #cbd5e1;
+  --color-text-light: #94a3b8;
+  
+  --color-bg-page: #0f172a;
+  --color-bg-surface: #1e293b;
+  --color-bg-card: #1e293b;
+  
+  --color-border: #334155;
+  --color-border-hover: #475569;
+  
+  --focus-ring: 2px solid #60a5fa;
+  
+  --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-hover: 0 12px 24px -6px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+
+  --header-bg: rgba(15, 23, 42, 0.88);
+}
+
+/* --------------------------------------------------------------------------
+   2. Base Reset & Typography
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-base);
+  font-size: 16px;
+  color: var(--color-text-main);
+  background-color: var(--color-bg-page);
+  line-height: var(--line-height-base);
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-height) + 1rem); /* Prompt 16 */
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: var(--color-bg-page);
+  color: var(--color-text-main);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+img, svg {
+  display: block;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-primary-hover);
+}
+
+ul {
+  list-style: none;
+}
+
+/* Keyboard Focus States (Accessibility Requirement) */
+a:focus-visible,
+button:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+}
+
+/* --------------------------------------------------------------------------
+   3. Layout Container & Utilities
+   -------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+.section-intro {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 3rem auto;
+}
+
+.section-kicker {
+  display: inline-block;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  line-height: var(--line-height-heading);
+  margin-bottom: 0.75rem;
+}
+
+.section-description {
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+}
+
+/* --------------------------------------------------------------------------
+   4. Buttons & Badges (Prompt 14 - Micro-interactions)
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: inherit;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  min-height: 44px; /* Accessible touch target */
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  box-shadow: 0 1px 2px rgba(37, 99, 235, 0.2);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 3px rgba(37, 99, 235, 0.2);
+}
+
+.btn-outline {
+  background-color: var(--color-bg-card);
+  color: var(--color-text-main);
+  border-color: var(--color-border);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-bg-surface);
+  border-color: var(--color-border-hover);
+  color: var(--color-text-main);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.btn-outline:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.btn-sm {
+  padding: 0.45rem 1rem;
+  font-size: 0.875rem;
+  min-height: 38px;
+}
+
+.btn-large {
+  padding: 0.85rem 2rem;
+  font-size: 1rem;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  background-color: var(--color-primary-light);
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 1.25rem;
+}
+
+/* --------------------------------------------------------------------------
+   5. Site Header, Desktop Navbar & Theme Toggle (Prompts 13, 16, 17)
+   -------------------------------------------------------------------------- */
+.site-header {
+  position: sticky; /* Prompt 16: Sticky navbar */
+  top: 0;
+  z-index: 100;
+  background-color: var(--header-bg);
+  border-bottom: 1px solid var(--color-border);
+  height: var(--nav-height);
+  backdrop-filter: blur(10px); /* Prompt 17: Optional frosted glass */
+  -webkit-backdrop-filter: blur(10px);
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+/* Fallback for browsers that do not support backdrop-filter */
+@supports not ((-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))) {
+  .site-header {
+    background-color: var(--color-bg-page);
+  }
+}
+
+.navbar {
+  height: 100%;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+/* Logo Left */
+.nav-logo {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  color: var(--color-text-main);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.logo-bold {
+  color: var(--color-text-main);
+}
+
+.logo-sub {
+  color: var(--color-primary);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+/* Navigation Links Right */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.nav-link {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  padding: 0.5rem 0;
+  position: relative;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--color-primary);
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--color-primary);
+  border-radius: 2px;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+/* Theme Toggle Button (Prompt 13) */
+.theme-toggle {
+  background-color: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-main);
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+  min-height: 40px;
+}
+
+.theme-toggle:hover {
+  background-color: var(--color-bg-surface);
+  border-color: var(--color-border-hover);
+  transform: translateY(-1px);
+}
+
+.theme-toggle .icon-sun {
+  display: none;
+}
+
+.theme-toggle .icon-moon {
+  display: block;
+}
+
+[data-theme="dark"] .theme-toggle .icon-sun {
+  display: block;
+}
+
+[data-theme="dark"] .theme-toggle .icon-moon {
+  display: none;
+}
+
+/* Mobile Hamburger Button */
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem;
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.hamburger-line {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: var(--color-text-main);
+  border-radius: 2px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* --------------------------------------------------------------------------
+   6. Hero Section (Prompt 06)
+   -------------------------------------------------------------------------- */
+.hero-section {
+  background-color: var(--color-bg-surface);
+  border-bottom: 1px solid var(--color-border);
+  padding: 5rem 0 4.5rem;
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.hero-content {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero-headline {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--color-text-main);
+  margin-bottom: 1.25rem;
+}
+
+.hero-paragraph {
+  font-size: 1.125rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* --------------------------------------------------------------------------
+   7. About Section (Prompt 08)
+   -------------------------------------------------------------------------- */
+.about-section {
+  padding: 5rem 0;
+  background-color: var(--color-bg-page);
+  transition: background-color 0.25s ease;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+
+.about-card {
+  padding: 2rem;
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.about-card h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-text-main);
+  margin-bottom: 0.75rem;
+}
+
+.about-card p {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+/* --------------------------------------------------------------------------
+   8. Services Section (Prompt 07 & 15 - Service Card Lift Effects)
+   -------------------------------------------------------------------------- */
+.services-section {
+  padding: 5rem 0;
+  background-color: var(--color-bg-surface);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.service-card {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 2.25rem 1.75rem;
+  box-shadow: var(--shadow-subtle);
+  display: flex;
+  flex-direction: column;
+  /* Prompt 15: Restrained lift transition */
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease;
+  will-change: transform;
+}
+
+/* Prompt 15: Card hover & focus lift */
+.service-card:hover,
+.service-card:focus-within {
+  transform: translateY(-4px);
+  border-color: var(--color-border-hover);
+  box-shadow: var(--shadow-hover);
+}
+
+.service-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.service-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  margin-bottom: 0.75rem;
+}
+
+.service-description {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.service-features {
+  margin-top: auto;
+  border-top: 1px solid var(--color-border);
+  padding-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.service-features li {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  position: relative;
+  padding-left: 1.25rem;
+}
+
+.service-features li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   9. Contact / CTA Section (Prompt 08)
+   -------------------------------------------------------------------------- */
+.contact-section {
+  padding: 5rem 0;
+  background-color: var(--color-bg-page);
+  transition: background-color 0.25s ease;
+}
+
+.contact-box {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.5rem;
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.contact-text {
+  max-width: 580px;
+}
+
+.contact-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  margin-bottom: 0.75rem;
+}
+
+.contact-description {
+  color: var(--color-text-muted);
+  margin-bottom: 1.25rem;
+  font-size: 1rem;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+.contact-info strong {
+  color: var(--color-text-main);
+}
+
+.contact-action {
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   10. Footer (Prompt 09)
+   -------------------------------------------------------------------------- */
+.site-footer {
+  background-color: #0f172a;
+  color: #f8fafc;
+  padding: 4rem 0 2rem;
+  border-top: 1px solid var(--color-border);
+}
+
+[data-theme="dark"] .site-footer {
+  background-color: #080d1a;
+  border-top-color: #1e293b;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid #1e293b;
+  flex-wrap: wrap;
+}
+
+.footer-brand {
+  max-width: 320px;
+}
+
+.footer-logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.footer-logo:hover {
+  color: #93c5fd;
+}
+
+.footer-tagline {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: #94a3b8;
+  line-height: 1.6;
+}
+
+.footer-nav-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.footer-links a {
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: #94a3b8;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.social-link:hover {
+  color: #ffffff;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 2rem;
+  font-size: 0.85rem;
+  color: #64748b;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* --------------------------------------------------------------------------
+   11. Reduced Motion Query (Prompts 14 & 15)
+   Respects user preference for reduced motion
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .btn:hover,
+  .btn:active,
+  .service-card:hover,
+  .service-card:focus-within,
+  .theme-toggle:hover {
+    transform: none !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   12. Responsive Media Queries (Prompt 10)
+   -------------------------------------------------------------------------- */
+
+/* Tablet & Smaller Desktops (max-width: 992px) */
+@media (max-width: 992px) {
+  .about-grid,
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-card:last-child {
+    grid-column: span 2;
+  }
+
+  .contact-box {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Mobile Navigation Breakpoint (max-width: 768px) */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: flex;
+  }
+
+  /* Hamburger transformation when active */
+  .nav-toggle.active .hamburger-line:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+  .nav-toggle.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-toggle.active .hamburger-line:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  /* Collapsible mobile navigation menu */
+  .nav-menu {
+    position: absolute;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    background-color: var(--color-bg-page);
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem var(--container-padding);
+    flex-direction: column;
+    gap: 1.25rem;
+    display: none;
+    transition: background-color 0.25s ease;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+    gap: 0.85rem;
+  }
+
+  .nav-link {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0;
+  }
+
+  .nav-actions {
+    width: 100%;
+    justify-content: space-between;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .nav-cta {
+    flex: 1;
+    text-align: center;
+  }
+
+  /* Single Column Stacking */
+  .about-grid,
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-card:last-child {
+    grid-column: span 1;
+  }
+
+  .hero-section {
+    padding: 3.5rem 0 3rem;
+  }
+
+  .footer-top {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Narrow Mobile Viewports (max-width: 480px / 375px / 320px) */
+@media (max-width: 480px) {
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .contact-box {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .service-card {
+    padding: 1.75rem 1.25rem;
+  }
+}
