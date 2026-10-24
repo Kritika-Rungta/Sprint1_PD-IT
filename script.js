@@ -63,12 +63,22 @@ document.addEventListener('DOMContentLoaded', () => {
       menuToggle.setAttribute('aria-expanded', String(newState));
       menuToggle.classList.toggle('active', newState);
       navMenu.classList.toggle('active', newState);
+
+      if (newState) {
+        navMenu.classList.remove('hidden');
+        navMenu.classList.add('flex');
+      } else {
+        navMenu.classList.add('hidden');
+        navMenu.classList.remove('flex');
+      }
     };
 
     const closeMenu = () => {
       menuToggle.setAttribute('aria-expanded', 'false');
       menuToggle.classList.remove('active');
       navMenu.classList.remove('active');
+      navMenu.classList.add('hidden');
+      navMenu.classList.remove('flex');
     };
 
     // Click on hamburger button
@@ -100,6 +110,13 @@ document.addEventListener('DOMContentLoaded', () => {
       if (event.key === 'Escape' && navMenu.classList.contains('active')) {
         closeMenu();
         menuToggle.focus();
+      }
+    });
+
+    // Reset mobile menu when viewport expands to desktop
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 768 && navMenu.classList.contains('active')) {
+        closeMenu();
       }
     });
   }
