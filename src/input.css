@@ -7,6 +7,12 @@
     scroll-behavior: smooth;
     scroll-padding-top: 5.5rem;
   }
+
+  /* Optimize offscreen rendering for maximum mobile Lighthouse performance */
+  #about, #services, #contact, footer {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 400px;
+  }
 }
 
 /* Minimal custom rules for hamburger line transformation */
