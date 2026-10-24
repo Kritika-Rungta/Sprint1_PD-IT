@@ -15,15 +15,20 @@
   }
 }
 
+/* Mobile navigation drawer open state */
+.nav-menu.active {
+  display: flex !important;
+}
+
 /* Minimal custom rules for hamburger line transformation */
 .nav-toggle.active .hamburger-line:nth-child(1) {
-  transform: translateY(6px) rotate(45deg);
+  transform: translateY(8px) rotate(45deg);
 }
 .nav-toggle.active .hamburger-line:nth-child(2) {
   opacity: 0;
 }
 .nav-toggle.active .hamburger-line:nth-child(3) {
-  transform: translateY(-6px) rotate(-45deg);
+  transform: translateY(-8px) rotate(-45deg);
 }
 
 /* Theme toggle icon switching based on [data-theme="dark"] */
